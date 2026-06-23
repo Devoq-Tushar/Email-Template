@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Your Subscription Has Been Renewed! – P2Bridge</title>
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── RESET ── */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100% !important;
+      height: 100%;
+    }
+
+    body,
+    table,
+    td,
+    a {
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+
+    table,
+    td {
+      mso-table-lspace: 0pt;
+      mso-table-rspace: 0pt;
+      border-collapse: collapse;
+    }
+
+    /* Force every table in the email to respect the viewport instead of
+       growing to fit its widest inline-styled cell (this was the #1 cause
+       of the 401px-instead-of-375px bug). */
+    table {
+      max-width: 100%;
+    }
+
+    img {
+      border: 0;
+      display: block;
+      outline: none;
+      text-decoration: none;
+      -ms-interpolation-mode: bicubic;
+      max-width: 100%;
+      height: auto;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    body {
+      background-color: #F2F4F7;
+      font-family: 'Satoshi', Arial, sans-serif;
+    }
+
+    /* ── MOBILE ≤375px ── */
+    @media only screen and (max-width: 450px) {
+
+      /* Container */
+      .email-container {
+        max-width: 100% !important;
+        width: 100% !important;
+        border-width: 4px !important;
+      }
+
+      /* ── HEADER ── */
+      .hd-wrap {
+        padding: 20px !important;
+      }
+
+      .header-right {
+        margin-left: 0 !important;
+        width: 100% !important;
+      }
+
+      .hd-tag-main {
+        width: 80% !important;
+        text-align: left !important;
+      }
+
+      .hd-logo {
+        max-width: 66px !important;
+        height: 40px !important;
+      }
+
+      .hd-tag {
+        font-size: 12px !important;
+        line-height: 18px !important;
+      }
+
+      .icon-globle {
+        width: 24px !important;
+        height: 24px !important;
+        padding: 4px !important;
+      }
+
+      .hd-globe-main {
+        padding-right: 8px !important;
+      }
+
+      .hd-globe {
+        width: 14px !important;
+        height: 14px !important;
+      }
+
+      /* ── TITLE ── */
+      .ti-wrap {
+        padding: 20px 20px 16px !important;
+      }
+
+      .ti-icon-wrap-main {
+        padding-right: 12px !important;
+      }
+
+      .ti-icon-wrap {
+        width: 50px !important;
+        height: 50px !important;
+        padding: 12px !important;
+      }
+
+      .ti-text {
+        font-size: 24px !important;
+        line-height: 31px !important;
+      }
+
+      /* ── HERO ── */
+      .hero-wrap {
+        padding: 0 50px 0px !important;
+      }
+
+      .hero-img {
+        max-width: 280px !important;
+      }
+
+      /* ── GREETING ── */
+      .gr-wrap {
+        padding: 20px 20px 16px !important;
+      }
+
+      .gr-wrap p.gr-text:first-child {
+        margin-bottom: 8px !important;
+      }
+
+      .gr-text {
+        font-size: 14px !important;
+        line-height: 21px !important;
+      }
+
+      /* ── SESSION DETAILS ── */
+      .sd-outer {
+        padding: 0 20px 20px !important;
+      }
+
+      .sd-head-cell {
+        padding: 8px 12px !important;
+      }
+
+      .sd-head-cell-inner {
+        padding-right: 12px !important;
+      }
+
+      .sd-head-icon-main {
+        width: 30px !important;
+        height: 30px !important;
+        padding: 6.43px !important;
+      }
+
+      .sd-head-title {
+        font-size: 20px !important;
+        line-height: 26px !important;
+      }
+
+      .sd-row-cell {
+        padding: 8px 10px !important;
+      }
+
+      .sd-row-icon-wrap {
+        width: 30px !important;
+        height: 30px !important;
+        padding: 6.43px !important;
+      }
+
+      .sd-label {
+        font-size: 14px !important;
+        line-height: 18px !important;
+        width: 106px !important;
+      }
+
+      .sd-colon {
+        font-size: 14px !important;
+        line-height: 21px !important;
+
+      }
+
+      .sd-value {
+        font-size: 14px !important;
+        line-height: 21px !important;
+        padding-left: 20px !important;
+      }
+
+      /* ── WHAT HAPPENS NEXT ── */
+      .nx-wrap {
+        padding: 20px 20px 20px 16px !important;
+      }
+
+      .nx-title {
+        font-size: 20px !important;
+        line-height: 26px !important;
+        text-wrap: nowrap !important;
+      }
+
+      .nx-wrap-inner {
+        margin-bottom: 16px !important;
+      }
+
+      /* FIX: these three cells previously had inline padding of 65px/65px
+         and white-space:nowrap with NO class to hook into — that fixed
+         minimum width was what stretched the whole table past 375px.
+         They now have classes so they can be overridden here. */
+      .nx-line-left {
+        padding-left: 0px !important;
+      }
+
+      .nx-line-right {
+        padding-right: 0px !important;
+      }
+
+      .nx-line-title {
+        white-space: normal !important;
+        padding: 0 12px !important;
+      }
+
+      /* Steps: stack vertically — number on top-left, icon + text beside */
+      .steps-table {
+        width: 100% !important;
+      }
+
+      .step-td {
+        position: relative !important;
+        display: block !important;
+        width: 100% !important;
+        padding-bottom: 16px !important;
+        padding-right: 0 !important;
+        position: relative !important;
+        text-align: left !important;
+        padding-top: 16px !important;
+      }
+
+      .step-td:last-child {
+        padding-bottom: 0 !important;
+      }
+
+      .step-td:last-child {
+        border-bottom: none !important;
+      }
+
+      /* Number badge — float left */
+      .step-num-wrap {
+        position: absolute !important;
+        display: inline-block !important;
+        vertical-align: top !important;
+        margin-right: 0 !important;
+        margin-bottom: 0 !important;
+        text-align: left !important;
+        top: 0 !important;
+        left: 18px;
+      }
+
+      .step-num {
+        margin: 0 !important;
+        width: 16px !important;
+        height: 16px !important;
+        font-size: 9.6px !important;
+        line-height: 11px !important;
+      }
+
+      /* Icon */
+      .step-icon {
+        max-width: 52px !important;
+        height: 52px !important;
+        display: inline-block !important;
+        vertical-align: top !important;
+        margin: 0 12px 0 0 !important;
+      }
+
+      /* Text block beside icon */
+      .step-content {
+        display: inline-block !important;
+        vertical-align: top !important;
+        max-width: calc(100% - 90px) !important;
+        text-align: left !important;
+      }
+
+      .step-label {
+        font-size: 12px !important;
+        line-height: 16px !important;
+      }
+
+      .step-desc {
+        font-size: 12px !important;
+        line-height: 16px !important;
+      }
+
+      /* Hide arrows on mobile */
+      .step-arrow-td {
+        display: none !important;
+      }
+
+      .step-arrow-td-mobile {
+        display: block !important;
+        position: absolute !important;
+        bottom: 2px;
+        left: 24px;
+      }
+
+      .step-arrow-td-mobile img {
+        width: auto !important;
+        height: 10px !important;
+      }
+
+      /* ── NOTICE BOX ── */
+      .nt-outer {
+        padding: 0 20px 16px !important;
+      }
+
+      .nt-box {
+        display: block !important;
+        /* override inline-block */
+        width: 100% !important;
+        padding: 12px !important;
+        border-radius: 12px !important;
+      }
+
+      .nt-icon-main {
+        width: 62px !important;
+        padding-right: 8px !important;
+        vertical-align: top !important;
+      }
+
+      .nt-icon {
+        max-width: 62px !important;
+        height: 62px !important;
+      }
+
+      .nt-text {
+        font-size: 14px !important;
+        line-height: 18px !important;
+      }
+
+      /* ── BUTTON ── */
+      .btn-wrap {
+        padding: 0 20px 20px !important;
+      }
+
+      .btn-link {
+        font-size: 14px !important;
+        line-height: 21px !important;
+        padding: 12px 24px !important;
+        width: fit-content !important;
+        text-align: center !important;
+        display: block !important;
+        justify-self: center;
+      }
+
+      /* ── REGARDS ── */
+      .rg-wrap {
+        padding: 20px 20px 8px !important;
+      }
+
+      .rg-text {
+        font-size: 16px !important;
+      }
+
+      .rg-brand {
+        font-size: 16px !important;
+      }
+
+      /* ── HELP BOX ── */
+      .hlp-outer {
+        padding: 0 20px 20px !important;
+      }
+
+      .hlp-box {
+        display: block !important;
+        /* override inline-block */
+        width: 100% !important;
+        padding: 12px 16px !important;
+        border-radius: 12px !important;
+      }
+
+      .hlp-box tbody,
+      .hlp-box tbody tr {
+        display: block !important;
+      }
+
+      /* Stack left and right sections vertically */
+      .hlp-left-td {
+        display: block !important;
+        width: 100% !important;
+      }
+
+      .hlp-left-table {
+        border-right: none !important;
+        border-bottom: 1px solid #ffffff !important;
+        padding-left: 0 !important;
+        padding-bottom: 8px !important;
+        display: block !important;
+      }
+
+      .hlp-links-td {
+        display: block !important;
+        width: 100% !important;
+        text-align: left !important;
+        padding-top: 8px !important;
+        padding-left: 0 !important;
+      }
+
+      .hlp-links-table {
+        margin-left: 0 !important;
+      }
+
+      .hlp-links-td-inner {
+        padding-bottom: 8px !important;
+      }
+
+      .hlp-links-td-icon {
+        padding-right: 12px !important;
+        vertical-align: bottom !important;
+      }
+
+      .hlp-icon-main {
+        padding-right: 12px !important;
+      }
+
+      .hlp-icon {
+        max-width: 52px !important;
+        height: 52px !important;
+      }
+
+      .hlp-label {
+        font-size: 14px !important;
+        line-height: 18px !important;
+      }
+
+      .hlp-sub {
+        font-size: 12px !important;
+        line-height: 16px !important;
+        margin-top: 4px !important;
+      }
+
+      .hlp-link {
+        font-size: 12px !important;
+        line-height: 16px !important;
+      }
+
+      .hlp-link-icon {
+        width: 16px !important;
+        height: 16px !important;
+      }
+
+      /* ── FOOTER ── */
+      .ft-wrap {
+        padding: 20px 20px !important;
+      }
+
+      .ft-wrap table tbody tr td {
+        padding-right: 6px !important;
+      }
+
+      .ft-wrap table tbody tr td:last-child {
+        padding-right: 0px !important;
+      }
+
+      .ft-social-icon {
+        width: 24px !important;
+        height: 24px !important;
+      }
+
+      .ft-link-main {
+        margin-top: 8px !important;
+        margin-bottom: 8px !important;
+      }
+
+      .ft-link {
+        font-size: 12px !important;
+        line-height: 18px !important;
+        margin-right: 16px !important;
+      }
+
+      .ft-copy {
+        font-size: 12px !important;
+        line-height: 18px !important;
+      }
+    }
+  </style>
+</head>
+
+<body style="margin:0;padding:0;background-color:#F2F4F7;font-family:'Satoshi',Arial,sans-serif;">
+
+  <!-- Outer wrapper -->
+  <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="background-color:#F2F4F7;">
+    <tr>
+      <td align="center" style="padding:0;">
+
+        <!-- Email container: max-width 600px, never fixed px -->
+        <table class="email-container" role="presentation" cellpadding="0" cellspacing="0"
+          style="max-width:600px;width:100%;background-color:#ffffff;overflow:hidden; border-top: 6px solid #0F5593;">
+
+
+          <!-- ══ HEADER ══ -->
+          <tr>
+            <td class="hd-wrap" style="padding:21px 24px 24px; background-color:#ffffff;">
+              <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                  <td style="vertical-align:middle;">
+                    <img class="hd-logo" src="images/logo_header_p2b.webp" alt="P2Bridge"
+                      style="max-width: 100%; height: auto; display: block; object-fit: contain;" />
+                  </td>
+                  <td style="vertical-align:middle;text-align:right;">
+                    <table class="header-right" role="presentation" cellpadding="0" cellspacing="0"
+                      style="margin-left:auto;">
+                      <tr>
+                        <td class="hd-globe-main" style="vertical-align:middle;padding-right:12px;">
+                          <span class="icon-globle" style="display: inline-block;
+                                                        width: 36px;
+                                                        height: 36px;
+                                                        padding: 8px;
+                                                        border-radius: 50%;
+                                                        background-color: rgba(15, 85, 147, 0.1);
+                                                        line-height: 0;
+                                                        text-align: center;
+                                                        vertical-align: middle;">
+                            <img class="hd-globe" src="images/icn_p2b_globe.svg" alt=""
+                              style="max-width:100%; height:auto; display:block; margin:0 auto;" />
+                          </span>
+                        </td>
+                        <td class="hd-tag-main" style="vertical-align:middle; width: 42%;text-align: left;">
+                          <span class="hd-tag" style="font-size:16px;font-weight:500;color:#4A4A4A;line-height:24px;">
+                            Meet the World Through LiveCultural Classes
+                          </span>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+
+          <!-- ══ TITLE ══ -->
+          <tr>
+            <td class="ti-wrap" style="padding:24px 44px">
+              <table role="presentation" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td class="ti-icon-wrap-main" style="vertical-align:middle;padding-right:16px;">
+                    <span class="ti-icon-wrap" style="display: inline-block;
+                                                        width: 72px;
+                                                        height: 72px;
+                                                        padding: 18px;
+                                                        border-radius: 50%;
+                                                        background-color: rgba(15, 85, 147, 0.1);
+                                                        line-height: 0;
+                                                        text-align: center;
+                                                        vertical-align: middle;">
+                      <img class="ti-icon" src="images/icn_Booking_Confirmed.svg" alt="pending"
+                        style="max-width:100%; height:auto; display:block; margin:0 auto;" />
+                    </span>
+                  </td>
+                  <td style="vertical-align:middle;">
+                    <h1 class="ti-text"
+                      style="font-size:32px;font-weight:900;color:#202020;line-height:42px;font-family:'Satoshi',Arial,sans-serif;">
+                      Your Subscription Has Been Renewed!
+                    </h1>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+
+          <!-- ══ HERO IMAGE ══ -->
+          <tr>
+            <td class="hero-wrap" style="padding:0 44px 16px;">
+              <img class="hero-img" src="images/img_Your_Subscription_Has_Been_Renewed.webp"
+                alt="Session booking illustration"
+                style="max-width:100%;height:auto;display:block; justify-self: center;" />
+            </td>
+          </tr>
+
+
+          <!-- ══ GREETING ══ -->
+          <tr>
+            <td class="gr-wrap" style="padding:24px;">
+              <p class="gr-text"
+                style="font-size:16px;font-weight:400;color:#4A4A4A;line-height:24px; margin-bottom: 12px; font-family:'Satoshi',Arial,sans-serif;">
+                Dear <span style="font-weight:700;color:#1B4F72;">{UserName}</span>,
+              </p>
+              <p class="gr-text"
+                style="font-size:16px;font-weight:400;color:#4A4A4A;line-height:24px;font-family:'Satoshi',Arial,sans-serif;">
+                This is a quick notification that your subscription for
+                <span style="font-weight:700;color:#1B4F72;">Chef Explorer Membership </span>
+                has been successfully renewed. Thank you so much for your continued membership!
+              </p>
+            </td>
+          </tr>
+
+
+          <!-- ══ SESSION DETAILS ══ -->
+          <tr>
+            <td class="sd-outer" style="padding:0 24px 24px;">
+              <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="overflow:hidden;">
+
+                <!-- Details Header -->
+                <tr>
+                  <td class="sd-head-cell" style="padding:12px 16px;border-bottom:1px solid #E6E6E6;">
+                    <table role="presentation" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td class="sd-head-cell-inner" style="vertical-align:middle;padding-right:24px;">
+                          <span class="sd-head-icon-main" style="display: inline-block;
+                                                        width: 42px;
+                                                        height: 42px;
+                                                        padding: 9px;
+                                                        border-radius: 100%;
+                                                        background-color: rgba(15, 85, 147, 0.1);
+                                                        line-height: 0;
+                                                        text-align: center;
+                                                        vertical-align: middle;">
+                            <img class="sd-head-icon" src="images/icn_docs.svg" alt=""
+                              style="max-width:100%;height:auto;display:block; margin: 0 auto;" />
+                          </span>
+                        </td>
+                        <td style="vertical-align:middle;">
+                          <span class="sd-head-title"
+                            style="font-size:24px; line-height: 31px; font-weight:700;color:#202020;font-family:'Satoshi',Arial,sans-serif;">
+                            Renewal Summary
+                          </span>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+
+                <!-- Subscription Plan  Row -->
+                <tr>
+                  <td class="sd-row-cell" style="padding:12px 16px;border-bottom:1px solid #E6E6E6;">
+                    <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
+                      <tr>
+                        <td class="sd-head-cell-inner" style="vertical-align:middle;width:42px;padding-right:24px;">
+                          <span class="sd-head-icon-main" style="display: inline-block;
+                                                        width: 42px;
+                                                        height: 42px;
+                                                        padding: 9px;
+                                                        border-radius: 100%;
+                                                        background-color: rgba(176, 42, 30, 0.1);
+                                                        line-height: 0;
+                                                        text-align: center;
+                                                        vertical-align: middle;">
+                            <img class="sd-row-icon" src="images/icn_crown.svg" alt="host"
+                              style="max-width:100%;height:auto;display:block; margin: 0 auto;" />
+                          </span>
+                        </td>
+                        <td class="sd-label"
+                          style="font-size:18px; line-height: 23px; font-weight:700;color:#202020;vertical-align:middle;width:190px;font-family:'Satoshi',Arial,sans-serif;">
+                          Subscription Plan
+                        </td>
+                        <td class="sd-colon"
+                          style="font-size:16px; line-height: 24px; color:#202020;vertical-align:middle;font-family:'Satoshi',Arial,sans-serif;font-weight: 700;">
+                          :
+                        </td>
+                        <td class="sd-value"
+                          style="font-size:16px; line-height: 24px; font-weight:700;color:#1B4F72;vertical-align:middle;font-family:'Satoshi',Arial,sans-serif;padding-left: 40px;">
+                          Chef Explorer Membership
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+
+                <!-- Amount Charge Row -->
+                <tr>
+                  <td class="sd-row-cell" style="padding:12px 16px;border-bottom:1px solid #E6E6E6;">
+                    <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
+                      <tr>
+                        <td class="sd-head-cell-inner" style="vertical-align:middle;width:42px;padding-right:24px;">
+                          <span class="sd-head-icon-main" style="display: inline-block;
+                                                        width: 42px;
+                                                        height: 42px;
+                                                        padding: 9px;
+                                                        border-radius: 100%;
+                                                        background-color: rgba(77, 127, 70, 0.1);
+                                                        line-height: 0;
+                                                        text-align: center;
+                                                        vertical-align: middle;">
+                            <!-- FIX: removed the stray "data:" prefix that broke this icon -->
+                            <img class="sd-row-icon" src="images/icn_rate.svg" alt="host"
+                              style="max-width:100%;height:auto;display:block; margin: 0 auto;" />
+                          </span>
+                        </td>
+                        <td class="sd-label"
+                          style="font-size:18px; line-height: 23px; font-weight:700;color:#202020;vertical-align:middle;width:190px;font-family:'Satoshi',Arial,sans-serif;">
+                          Amount Charge
+                        </td>
+                        <td class="sd-colon"
+                          style="font-size:16px; line-height: 24px; color:#202020;vertical-align:middle;font-family:'Satoshi',Arial,sans-serif;font-weight: 700;">
+                          :
+                        </td>
+                        <td class="sd-value"
+                          style="font-size:16px; line-height: 24px; font-weight:700;color:#1B4F72;vertical-align:middle;font-family:'Satoshi',Arial,sans-serif;padding-left: 40px;">
+                          $1,999 / month
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+
+                <!-- Billing Interval Row -->
+                <tr>
+                  <td class="sd-row-cell" style="padding:12px 16px;border-bottom:1px solid #E6E6E6;">
+                    <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
+                      <tr>
+                        <td class="sd-head-cell-inner" style="vertical-align:middle;width:42px;padding-right:24px;">
+                          <span class="sd-head-icon-main" style="display: inline-block;
+                                                        width: 42px;
+                                                        height: 42px;
+                                                        padding: 9px;
+                                                        border-radius: 100%;
+                                                        background-color: rgba(244, 180, 0, 0.1);
+                                                        line-height: 0;
+                                                        text-align: center;
+                                                        vertical-align: middle;">
+                            <img class="sd-row-icon" src="images/icn_billing_yellow.svg" alt="host"
+                              style="max-width:100%;height:auto;display:block; margin: 0 auto;" />
+                          </span>
+                        </td>
+                        <td class="sd-label"
+                          style="font-size:18px; line-height: 23px; font-weight:700;color:#202020;vertical-align:middle;width:190px;font-family:'Satoshi',Arial,sans-serif;">
+                          Billing Interval
+                        </td>
+                        <td class="sd-colon"
+                          style="font-size:16px; line-height: 24px; color:#202020;vertical-align:middle;font-family:'Satoshi',Arial,sans-serif;font-weight: 700;">
+                          :
+                        </td>
+                        <td class="sd-value"
+                          style="font-size:16px; line-height: 24px; font-weight:700;color:#1B4F72;vertical-align:middle;font-family:'Satoshi',Arial,sans-serif;padding-left: 40px;">
+                          Monthly
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+
+                <!-- Next Renewal Date Row -->
+                <tr>
+                  <td class="sd-row-cell" style="padding:12px 16px;">
+                    <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
+                      <tr>
+                        <td class="sd-head-cell-inner" style="vertical-align:middle;width:42px;padding-right:24px;">
+                          <span class="sd-head-icon-main" style="display: inline-block;
+                                                        width: 42px;
+                                                        height: 42px;
+                                                        padding: 9px;
+                                                        border-radius: 100%;
+                                                        background-color: rgba(135, 93, 221, 0.1);
+                                                        line-height: 0;
+                                                        text-align: center;
+                                                        vertical-align: middle;">
+                            <img class="sd-row-icon" src="images/icn_next_date_purple.svg" alt="host"
+                              style="max-width:100%;height:auto;display:block; margin: 0 auto;" />
+                          </span>
+                        </td>
+                        <td class="sd-label"
+                          style="font-size:18px; line-height: 23px; font-weight:700;color:#202020;vertical-align:middle;width:190px;font-family:'Satoshi',Arial,sans-serif;">
+                          Next Renewal Date
+                        </td>
+                        <td class="sd-colon"
+                          style="font-size:16px; line-height: 24px; color:#202020;vertical-align:middle;font-family:'Satoshi',Arial,sans-serif;font-weight: 700;">
+                          :
+                        </td>
+                        <td class="sd-value"
+                          style="font-size:16px; line-height: 24px; font-weight:700;color:#1B4F72;vertical-align:middle;font-family:'Satoshi',Arial,sans-serif;padding-left: 40px;">
+                          2nd July 2026
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+
+              </table>
+            </td>
+          </tr>
+
+          <!-- ══ NOTICE BOX ══ -->
+          <tr>
+            <td class="nt-outer" style="padding:24px 24px 19px;">
+              <table class="nt-box" role="presentation" cellpadding="0" cellspacing="0" width="100%"
+                style="background-color:#ECF2F7;border-radius:10px;padding:16px; display: inline-block;">
+                <tr>
+                  <td class="nt-icon-main" style="vertical-align:middle;padding-right:12px;width:84px;">
+                    <img class="nt-icon" src="images/icn_lemp.svg" alt=""
+                      style="max-width:72px;height:72px;display:block;filter: drop-shadow(0px 8px 18px rgba(32, 32, 32, 0.05));" />
+                  </td>
+                  <td style="vertical-align:middle;">
+                    <p class="nt-text"
+                      style="font-size:16px;font-weight:700;color:#1B4F72;line-height:24px;font-family:'Satoshi',Arial,sans-serif; margin-bottom: 4px;">
+                      Your membership remains active.
+                    </p>
+                    <p class="nt-text"
+                      style="font-size:16px;font-weight:400;color:#4A4A4A;line-height:24px;font-family:'Satoshi',Arial,sans-serif;">
+                      You can continue booking covered classes directly for
+                      <span style="font-weight:700;color:#1B4F72;">$0.</span>
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- ══ REGARDS ══ -->
+          <tr>
+            <td class="rg-wrap" style="padding:24px 24px 12px;">
+              <p class="rg-text"
+                style="font-size:16px; line-height: 24px; font-weight:400;color:#4A4A4A;font-family:'Satoshi',Arial,sans-serif;">
+                Best regards,
+              </p>
+              <p class="rg-brand"
+                style="font-size:16px; line-height: 24px; font-weight:700;color:#1B4F72;font-family:'Satoshi',Arial,sans-serif;">
+                P2Bridge Team
+              </p>
+            </td>
+          </tr>
+
+
+          <!-- ══ HELP BOX ══ -->
+          <tr>
+            <td class="hlp-outer" style="padding:0 24px 19px 24px;">
+              <table class="hlp-box" role="presentation" cellpadding="0" cellspacing="0" width="100%"
+                style="background-color: #ECF2F7; border-radius:16px; padding:12px 16px; display: inline-block;">
+                <tr>
+                  <td class="hlp-left-td" style="vertical-align:middle; display: inline-flex;">
+                    <table class="hlp-left-table" role="presentation" cellpadding="0" cellspacing="0"
+                      style="padding-right: 12px; border-right: 1px solid #FFFFFF; display: inline-block;">
+                      <tr>
+                        <td class="hlp-icon-main" style="vertical-align:middle;padding-right:16px;">
+                          <img class="hlp-icon" src="images/icn_message.svg" alt="help"
+                            style="max-width:64px;height:64px;display:block;" />
+                        </td>
+                        <td style="vertical-align:middle;">
+                          <p class="hlp-label"
+                            style="font-size:16px; line-height: 21px; font-weight:700;color:#202020;font-family:'Satoshi',Arial,sans-serif;">
+                            Need help?
+                          </p>
+                          <p class="hlp-sub"
+                            style="font-size:14px; line-height: 18px; font-weight:400;color:#202020; margin-top:8px;font-family:'Satoshi',Arial,sans-serif;">
+                            Our support team is here for you.
+                          </p>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                  <td class="hlp-links-td"
+                    style="vertical-align:middle;text-align:right; display: inline-block; padding-left: 12px;">
+                    <table class="hlp-links-table" role="presentation" cellpadding="0" cellspacing="0"
+                      style="margin-left:auto;">
+                      <tr>
+                        <td class="hlp-links-td-inner" style="padding-bottom:12px;">
+                          <table role="presentation" cellpadding="0" cellspacing="0">
+                            <tr>
+                              <td class="hlp-links-td-icon" style="vertical-align:middle;padding-right:16px;">
+                                <img class="hlp-link-icon" src="images/icn_sms.svg" alt=""
+                                  style="max-width:24px;height:24px;display:block;" />
+                              </td>
+                              <td>
+                                <a class="hlp-link" href="mailto:support@p2bridge.com"
+                                  style="font-size:14px; line-height: 18px; font-weight:500; color:#0F5593;text-decoration:none;font-family:'Satoshi',Arial,sans-serif;">
+                                  support@p2bridge.com
+                                </a>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <table role="presentation" cellpadding="0" cellspacing="0">
+                            <tr>
+                              <td class="hlp-links-td-icon" style="vertical-align:middle;padding-right:16px;">
+                                <img class="hlp-link-icon" src="images/icn_world.svg" alt=""
+                                  style="max-width:24px;height:24px;display:block;" />
+                              </td>
+                              <td>
+                                <a class="hlp-link" href="https://www.p2bridge.com"
+                                  style="font-size:14px; line-height: 18px; font-weight:500;color:#0F5593;text-decoration:none;font-family:'Satoshi',Arial,sans-serif;">
+                                  www.p2bridge.com
+                                </a>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+
+          <!-- ══ FOOTER ══ -->
+          <tr>
+            <td class="ft-wrap" style="background-color:#0F5593;padding:25px 24px;text-align:center;">
+
+              <!-- Social Icons -->
+              <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 auto;">
+                <tr>
+                  <td style="padding-right:8px;">
+                    <a href="#">
+                      <img class="ft-social-icon" src="images/icn_yt.svg" alt="YouTube"
+                        style="max-width:36px;height:36px;display:block;" />
+                    </a>
+                  </td>
+                  <td style="padding-right:8px;">
+                    <a href="#">
+                      <img class="ft-social-icon" src="images/icn_instagram.svg" alt="Instagram"
+                        style="max-width:36px;height:36px;display:block;" />
+                    </a>
+                  </td>
+                  <td style="padding-right:8px;">
+                    <a href="#">
+                      <img class="ft-social-icon" src="images/icn_facebook.svg" alt="Facebook"
+                        style="max-width:36px;height:36px;display:block;" />
+                    </a>
+                  </td>
+                  <td>
+                    <a href="#">
+                      <img class="ft-social-icon" src="images/icn_x.svg" alt="X"
+                        style="max-width:36px;height:36px;display:block;" />
+                    </a>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Footer Links -->
+              <div class="ft-link-main" style="margin-top:12px;margin-bottom:12px;">
+                <a class="ft-link" href="#"
+                  style="font-size:14px; line-height: 21px; color:#FFFFFF;text-decoration:none;margin-right:32px;font-family:'Satoshi',Arial,sans-serif;">About
+                  Us</a>
+                <a class="ft-link" href="#"
+                  style="font-size:14px; line-height: 21px; color:#FFFFFF;text-decoration:none;margin-right:32px;font-family:'Satoshi',Arial,sans-serif;">Contact
+                  Us</a>
+                <a class="ft-link" href="#"
+                  style="font-size:14px; line-height: 21px; color:#FFFFFF;text-decoration:none;margin-right:32px;font-family:'Satoshi',Arial,sans-serif;">Terms
+                  &amp; Conditions</a>
+              </div>
+
+              <p class="ft-copy"
+                style="font-size:14px; line-height: 21px; color:#FFFFFF;text-align:center;font-family:'Satoshi',Arial,sans-serif;">
+                &copy; 2026 P2 Bridge. All rights reserved.
+              </p>
+
+            </td>
+          </tr>
+
+
+        </table>
+        <!-- /email-container -->
+
+      </td>
+    </tr>
+  </table>
+  <!-- /outer wrapper -->
+
+</body>
+
+</html>

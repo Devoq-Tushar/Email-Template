@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Session Pending Approval – P2Bridge</title>
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100% !important;
+      height: 100%;
+    }
+
+    body,
+    table,
+    td,
+    a {
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+
+    table,
+    td {
+      mso-table-lspace: 0pt;
+      mso-table-rspace: 0pt;
+      border-collapse: collapse;
+    }
+
+    table {
+      max-width: 100%;
+    }
+
+    img {
+      border: 0;
+      display: block;
+      outline: none;
+      text-decoration: none;
+      -ms-interpolation-mode: bicubic;
+      max-width: 100%;
+      height: auto;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    body {
+      background-color: #F2F4F7;
+      font-family: 'Satoshi', Arial, sans-serif;
+    }
+
+    @media only screen and (max-width:600px) {
+      .email-container {
+        max-width: 100% !important;
+        width: 100% !important;
+      }
+
+      /* HEADER */
+      .hd-wrap {
+        padding: 16px !important;
+      }
+
+      .hd-logo {
+        max-width: 80px !important;
+        height: auto !important;
+      }
+
+      .hd-tag {
+        font-size: 12px !important;
+        line-height: 16px !important;
+      }
+
+      .icon-globle {
+        width: 28px !important;
+        height: 28px !important;
+        padding: 6px !important;
+      }
+
+      .hd-globe {
+        width: 14px !important;
+        height: 14px !important;
+      }
+
+      .hd-globe-main {
+        padding-right: 6px !important;
+      }
+
+      .hd-tag-main {
+        width: auto !important;
+      }
+
+      /* TITLE */
+      .ti-wrap {
+        padding: 16px !important;
+      }
+
+      .ti-icon-wrap {
+        width: 48px !important;
+        height: 48px !important;
+        padding: 10px !important;
+      }
+
+      .ti-icon-wrap-main {
+        padding-right: 10px !important;
+      }
+
+      .ti-text {
+        font-size: 20px !important;
+        line-height: 26px !important;
+      }
+
+      /* HERO */
+      .hero-wrap {
+        padding: 0 16px 12px !important;
+      }
+
+      /* GREETING */
+      .gr-wrap {
+        padding: 16px !important;
+      }
+
+      .gr-text {
+        font-size: 14px !important;
+        line-height: 20px !important;
+      }
+
+      /* SESSION DETAILS */
+      .sd-outer {
+        padding: 0 16px 16px !important;
+      }
+
+      .sd-head-cell {
+        padding: 8px 10px !important;
+      }
+
+      .sd-head-cell-inner {
+        padding-right: 10px !important;
+      }
+
+      .sd-head-icon-main {
+        width: 32px !important;
+        height: 32px !important;
+        padding: 7px !important;
+      }
+
+      .sd-head-title {
+        font-size: 18px !important;
+        line-height: 24px !important;
+      }
+
+      .sd-row-cell {
+        padding: 8px 10px !important;
+      }
+
+      .sd-label {
+        font-size: 13px !important;
+        line-height: 18px !important;
+        width: 80px !important;
+      }
+
+      .sd-colon {
+        font-size: 13px !important;
+      }
+
+      .sd-value {
+        font-size: 13px !important;
+        line-height: 18px !important;
+        padding-left: 8px !important;
+      }
+
+      /* WHAT HAPPENS NEXT */
+      .nx-wrap {
+        padding: 16px !important;
+      }
+
+      .nx-wrap-inner {
+        margin-bottom: 16px !important;
+      }
+
+      .nx-title {
+        font-size: 16px !important;
+        line-height: 22px !important;
+        white-space: normal !important;
+      }
+
+      .nx-line-left {
+        padding-left: 0 !important;
+        display: none !important;
+      }
+
+      .nx-line-right {
+        padding-right: 0 !important;
+        display: none !important;
+      }
+
+      .nx-line-title {
+        padding: 0 !important;
+        text-align: left !important;
+      }
+
+      /* STEPS — stack vertically */
+      .steps-table {
+        width: 100% !important;
+      }
+
+      .step-td {
+        display: block !important;
+        width: 100% !important;
+        text-align: left !important;
+        padding: 12px 0 !important;
+        border-bottom: 1px solid #E6E6E6 !important;
+        position: relative !important;
+      }
+
+      .step-td:last-child {
+        border-bottom: none !important;
+      }
+
+      .step-inner-wrap {
+        display: table !important;
+        width: 100% !important;
+      }
+
+      .step-icon-cell {
+        display: table-cell !important;
+        vertical-align: top !important;
+        width: 60px !important;
+        padding-right: 12px !important;
+      }
+
+      .step-text-cell {
+        display: table-cell !important;
+        vertical-align: middle !important;
+      }
+
+      .step-icon {
+        max-width: 52px !important;
+        height: 52px !important;
+        margin: 0 !important;
+      }
+
+      .step-num-wrap {
+        margin-bottom: 4px !important;
+        position: static !important;
+      }
+
+      .step-num {
+        width: 16px !important;
+        height: 16px !important;
+        font-size: 9px !important;
+        line-height: 10px !important;
+      }
+
+      .step-label {
+        font-size: 13px !important;
+        line-height: 18px !important;
+      }
+
+      .step-arrow-td {
+        display: none !important;
+      }
+
+      .step-arrow-td-mobile {
+        display: none !important;
+      }
+
+      /* NOTICE BOX */
+      .nt-outer {
+        padding: 0 16px 16px !important;
+      }
+
+      .nt-box {
+        padding: 12px !important;
+        border-radius: 12px !important;
+      }
+
+      .nt-icon-main {
+        width: 52px !important;
+        padding-right: 8px !important;
+      }
+
+      .nt-icon {
+        max-width: 44px !important;
+        height: 44px !important;
+      }
+
+      .nt-text {
+        font-size: 13px !important;
+        line-height: 18px !important;
+      }
+
+      /* BUTTON */
+      .btn-wrap {
+        padding: 0 16px 16px !important;
+        text-align: center !important;
+      }
+
+      .btn-link {
+        font-size: 14px !important;
+        padding: 12px 20px !important;
+        display: inline-block !important;
+      }
+
+      /* REGARDS */
+      .rg-wrap {
+        padding: 16px 16px 8px !important;
+      }
+
+      .rg-text {
+        font-size: 14px !important;
+      }
+
+      .rg-brand {
+        font-size: 14px !important;
+      }
+
+      /* HELP BOX */
+      .hlp-outer {
+        padding: 0 16px 16px !important;
+      }
+
+      .hlp-box {
+        padding: 12px !important;
+        border-radius: 12px !important;
+      }
+
+      .hlp-left-td {
+        display: block !important;
+        width: 100% !important;
+        padding-bottom: 10px !important;
+        border-bottom: 1px solid #ffffff !important;
+      }
+
+      .hlp-links-td {
+        display: block !important;
+        width: 100% !important;
+        padding-top: 10px !important;
+        padding-left: 0 !important;
+        text-align: left !important;
+      }
+
+      .hlp-left-table {
+        border-right: none !important;
+        padding-right: 0 !important;
+      }
+
+      .hlp-icon {
+        max-width: 44px !important;
+        height: 44px !important;
+      }
+
+      .hlp-icon-main {
+        padding-right: 10px !important;
+      }
+
+      .hlp-label {
+        font-size: 14px !important;
+      }
+
+      .hlp-sub {
+        font-size: 12px !important;
+      }
+
+      .hlp-links-table {
+        margin-left: 0 !important;
+      }
+
+      .hlp-link {
+        font-size: 12px !important;
+      }
+
+      .hlp-link-icon {
+        width: 16px !important;
+        height: 16px !important;
+      }
+
+      .hlp-links-td-icon {
+        padding-right: 8px !important;
+      }
+
+      /* FOOTER */
+      .ft-wrap {
+        padding: 16px !important;
+      }
+
+      .ft-social-icon {
+        width: 28px !important;
+        height: 28px !important;
+      }
+
+      .ft-link-main {
+        margin-top: 8px !important;
+        margin-bottom: 8px !important;
+      }
+
+      .ft-link {
+        font-size: 12px !important;
+        line-height: 18px !important;
+        margin-right: 12px !important;
+      }
+
+      .ft-copy {
+        font-size: 11px !important;
+        line-height: 16px !important;
+      }
+    }
+  </style>
+</head>
+
+<body style="margin:0;padding:0;background-color:#F2F4F7;font-family:'Satoshi',Arial,sans-serif;">
+
+  <!-- Outer wrapper -->
+  <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="background-color:#F2F4F7;">
+    <tr>
+      <td align="center" style="padding:0;">
+
+        <!-- Email container -->
+        <table class="email-container" role="presentation" cellpadding="0" cellspacing="0"
+          style="max-width:600px;width:100%;background-color:#ffffff;overflow:hidden;border-top:6px solid #0F5593;">
+
+          <!-- ══ HEADER ══ -->
+          <tr>
+            <td class="hd-wrap" style="padding:21px 24px 24px;background-color:#ffffff;">
+              <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                  <td style="vertical-align:middle;">
+                    <img class="hd-logo" src="images/logo_header_p2b.webp" alt="P2Bridge"
+                      style="max-width:110px;height:auto;display:block;" />
+                  </td>
+                  <td style="vertical-align:middle;text-align:right;">
+                    <table role="presentation" cellpadding="0" cellspacing="0" style="margin-left:auto;">
+                      <tr>
+                        <td class="hd-globe-main" style="vertical-align:middle;padding-right:12px;">
+                          <span class="icon-globle"
+                            style="display:inline-block;width:36px;height:36px;padding:8px;border-radius:50%;background-color:rgba(15,85,147,0.1);line-height:0;text-align:center;vertical-align:middle;">
+                            <img class="hd-globe" src="images/icn_p2b_globe.svg" alt=""
+                              style="max-width:100%;height:auto;display:block;margin:0 auto;" />
+                          </span>
+                        </td>
+                        <td class="hd-tag-main" style="vertical-align:middle;text-align:left;max-width:180px;">
+                          <span class="hd-tag" style="font-size:14px;font-weight:500;color:#4A4A4A;line-height:20px;">
+                            Meet the World Through LiveCultural Classes
+                          </span>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- ══ TITLE ══ -->
+          <tr>
+            <td class="ti-wrap" style="padding:24px 44px;">
+              <table role="presentation" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td class="ti-icon-wrap-main" style="vertical-align:middle;padding-right:16px;">
+                    <span class="ti-icon-wrap"
+                      style="display:inline-block;width:72px;height:72px;padding:18px;border-radius:50%;background-color:rgba(15,85,147,0.1);line-height:0;text-align:center;vertical-align:middle;">
+                      <img src="images/icn_clock.svg" alt="pending"
+                        style="max-width:100%;height:auto;display:block;margin:0 auto;" />
+                    </span>
+                  </td>
+                  <td style="vertical-align:middle;">
+                    <h1 class="ti-text"
+                      style="font-size:32px;font-weight:900;color:#202020;line-height:42px;font-family:'Satoshi',Arial,sans-serif;">
+                      Session Pending Approval
+                    </h1>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- ══ HERO IMAGE ══ -->
+          <tr>
+            <td class="hero-wrap" style="padding:0 44px 16px;">
+              <img class="hero-img" src="images/img-calender.webp" alt="Session booking illustration"
+                style="max-width:100%;height:auto;display:block;" />
+            </td>
+          </tr>
+
+          <!-- ══ GREETING ══ -->
+          <tr>
+            <td class="gr-wrap" style="padding:24px;">
+              <p class="gr-text"
+                style="font-size:16px;font-weight:400;color:#4A4A4A;line-height:24px;margin-bottom:12px;font-family:'Satoshi',Arial,sans-serif;">
+                Dear <span style="font-weight:700;color:#1B4F72;">{UserName}</span>,
+              </p>
+              <p class="gr-text"
+                style="font-size:16px;font-weight:400;color:#4A4A4A;line-height:24px;font-family:'Satoshi',Arial,sans-serif;">
+                Thank you for booking a cooking session with
+                <span style="font-weight:700;color:#1B4F72;">Marco Rossi</span>!
+                Your request is currently pending approval.
+              </p>
+            </td>
+          </tr>
+
+          <!-- ══ SESSION DETAILS ══ -->
+          <tr>
+            <td class="sd-outer" style="padding:0 24px 24px;">
+              <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
+
+                <!-- Header row -->
+                <tr>
+                  <td class="sd-head-cell" style="padding:12px 16px;border-bottom:1px solid #E6E6E6;">
+                    <table role="presentation" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td class="sd-head-cell-inner" style="vertical-align:middle;padding-right:24px;">
+                          <span class="sd-head-icon-main"
+                            style="display:inline-block;width:42px;height:42px;padding:9px;border-radius:100%;background-color:rgba(15,85,147,0.1);line-height:0;text-align:center;vertical-align:middle;">
+                            <img src="images/icn_docs.svg" alt=""
+                              style="max-width:100%;height:auto;display:block;margin:0 auto;" />
+                          </span>
+                        </td>
+                        <td style="vertical-align:middle;">
+                          <span class="sd-head-title"
+                            style="font-size:24px;line-height:31px;font-weight:700;color:#202020;font-family:'Satoshi',Arial,sans-serif;">
+                            Session Details
+                          </span>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+
+                <!-- Host -->
+                <tr>
+                  <td class="sd-row-cell" style="padding:12px 16px;border-bottom:1px solid #E6E6E6;">
+                    <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
+                      <tr>
+                        <td class="sd-head-cell-inner" style="vertical-align:middle;width:42px;padding-right:24px;">
+                          <span class="sd-head-icon-main"
+                            style="display:inline-block;width:42px;height:42px;padding:9px;border-radius:100%;background-color:rgba(176,42,30,0.1);line-height:0;text-align:center;vertical-align:middle;">
+                            <img src="images/icn_Host.svg" alt="host"
+                              style="max-width:100%;height:auto;display:block;margin:0 auto;" />
+                          </span>
+                        </td>
+                        <td class="sd-label"
+                          style="font-size:18px;line-height:23px;font-weight:700;color:#202020;vertical-align:middle;width:160px;font-family:'Satoshi',Arial,sans-serif;">
+                          Host</td>
+                        <td class="sd-colon"
+                          style="font-size:16px;line-height:24px;color:#202020;vertical-align:middle;font-family:'Satoshi',Arial,sans-serif;font-weight:700;">
+                          :</td>
+                        <td class="sd-value"
+                          style="font-size:16px;line-height:24px;font-weight:700;color:#1B4F72;vertical-align:middle;font-family:'Satoshi',Arial,sans-serif;padding-left:24px;">
+                          Marco Rossi</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+
+                <!-- Experience -->
+                <tr>
+                  <td class="sd-row-cell" style="padding:12px 16px;border-bottom:1px solid #E6E6E6;">
+                    <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
+                      <tr>
+                        <td class="sd-head-cell-inner" style="vertical-align:middle;width:42px;padding-right:24px;">
+                          <span class="sd-head-icon-main"
+                            style="display:inline-block;width:42px;height:42px;padding:9px;border-radius:100%;background-color:rgba(244,180,0,0.1);line-height:0;text-align:center;vertical-align:middle;">
+                            <img src="images/icn_Experience.svg" alt="experience"
+                              style="max-width:100%;height:auto;display:block;margin:0 auto;" />
+                          </span>
+                        </td>
+                        <td class="sd-label"
+                          style="font-size:18px;line-height:23px;font-weight:700;color:#202020;vertical-align:middle;width:160px;font-family:'Satoshi',Arial,sans-serif;">
+                          Experience</td>
+                        <td class="sd-colon"
+                          style="font-size:16px;line-height:24px;color:#202020;vertical-align:middle;font-family:'Satoshi',Arial,sans-serif;font-weight:700;">
+                          :</td>
+                        <td class="sd-value"
+                          style="font-size:16px;line-height:24px;font-weight:700;color:#1B4F72;vertical-align:middle;font-family:'Satoshi',Arial,sans-serif;padding-left:24px;">
+                          8 years experience</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+
+                <!-- Date -->
+                <tr>
+                  <td class="sd-row-cell" style="padding:12px 16px;border-bottom:1px solid #E6E6E6;">
+                    <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
+                      <tr>
+                        <td class="sd-head-cell-inner" style="vertical-align:middle;width:42px;padding-right:24px;">
+                          <span class="sd-head-icon-main"
+                            style="display:inline-block;width:42px;height:42px;padding:9px;border-radius:100%;background-color:rgba(77,128,70,0.1);line-height:0;text-align:center;vertical-align:middle;">
+                            <img src="images/icn_Date.svg" alt="date"
+                              style="max-width:100%;height:auto;display:block;margin:0 auto;" />
+                          </span>
+                        </td>
+                        <td class="sd-label"
+                          style="font-size:18px;line-height:23px;font-weight:700;color:#202020;vertical-align:middle;width:160px;font-family:'Satoshi',Arial,sans-serif;">
+                          Date</td>
+                        <td class="sd-colon"
+                          style="font-size:16px;line-height:24px;color:#202020;vertical-align:middle;font-family:'Satoshi',Arial,sans-serif;font-weight:700;">
+                          :</td>
+                        <td class="sd-value"
+                          style="font-size:16px;line-height:24px;font-weight:700;color:#1B4F72;vertical-align:middle;font-family:'Satoshi',Arial,sans-serif;padding-left:24px;">
+                          23 June 2026</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+
+                <!-- Time -->
+                <tr>
+                  <td class="sd-row-cell" style="padding:12px 16px;">
+                    <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
+                      <tr>
+                        <td class="sd-head-cell-inner" style="vertical-align:middle;width:42px;padding-right:24px;">
+                          <span class="sd-head-icon-main"
+                            style="display:inline-block;width:42px;height:42px;padding:9px;border-radius:100%;background-color:rgba(135,93,221,0.1);line-height:0;text-align:center;vertical-align:middle;">
+                            <img src="images/icn_Time.svg" alt="time"
+                              style="max-width:100%;height:auto;display:block;margin:0 auto;" />
+                          </span>
+                        </td>
+                        <td class="sd-label"
+                          style="font-size:18px;line-height:23px;font-weight:700;color:#202020;vertical-align:middle;width:160px;font-family:'Satoshi',Arial,sans-serif;">
+                          Time</td>
+                        <td class="sd-colon"
+                          style="font-size:16px;line-height:24px;color:#202020;vertical-align:middle;font-family:'Satoshi',Arial,sans-serif;font-weight:700;">
+                          :</td>
+                        <td class="sd-value"
+                          style="font-size:16px;line-height:24px;font-weight:700;color:#1B4F72;vertical-align:middle;font-family:'Satoshi',Arial,sans-serif;padding-left:24px;">
+                          18:00 UTC</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+
+              </table>
+            </td>
+          </tr>
+
+          <!-- ══ WHAT HAPPENS NEXT ══ -->
+          <tr>
+            <td class="nx-wrap" style="padding:24px;">
+
+              <!-- Section heading -->
+              <table class="nx-wrap-inner" role="presentation" cellpadding="0" cellspacing="0" width="100%"
+                style="margin-bottom:24px;">
+                <tr>
+                  <td class="nx-line-left" style="vertical-align:middle;width:50%;">
+                    <hr style="border:none;border-top:1px solid #E6E6E6;margin:0;" />
+                  </td>
+                  <td class="nx-line-title" style="vertical-align:middle;white-space:nowrap;padding:0 24px;width:1%;">
+                    <h2 class="nx-title"
+                      style="font-size:24px;line-height:31px;font-weight:700;color:#202020;text-align:center;font-family:'Satoshi',Arial,sans-serif;margin:0;">
+                      What happens next?
+                    </h2>
+                  </td>
+                  <td class="nx-line-right" style="vertical-align:middle;width:50%;">
+                    <hr style="border:none;border-top:1px solid #E6E6E6;margin:0;" />
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Steps — each step is a TABLE ROW (not td display:block) for email client compatibility -->
+              <table class="steps-table" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+
+                <!-- DESKTOP: all 4 steps in one row -->
+                <tr class="steps-desktop-row">
+                  <!-- Step 1 -->
+                  <td class="step-td"
+                    style="width:25%;vertical-align:top;text-align:center;padding:0 8px;position:relative;">
+                    <div class="step-num-wrap" style="text-align:center;margin-bottom:6px;">
+                      <div class="step-num"
+                        style="width:20px;height:20px;border-radius:50%;background-color:#0F5593;display:inline-flex;align-items:center;justify-content:center;font-size:12px;line-height:16px;font-weight:700;color:#ffffff;font-family:'Satoshi',Arial,sans-serif;">
+                        1</div>
+                    </div>
+                    <img class="step-icon" src="images/icn_Host_with_person.svg" alt="Host reviews"
+                      style="max-width:72px;height:72px;margin:0 auto 12px auto;display:block;" />
+                    <div class="step-content">
+                      <p class="step-label"
+                        style="font-size:14px;font-weight:700;color:#202020;line-height:18px;font-family:'Satoshi',Arial,sans-serif;">
+                        Host</p>
+                      <p class="step-label"
+                        style="font-size:14px;font-weight:400;color:#1A202C;line-height:20px;font-family:'Satoshi',Arial,sans-serif;">
+                        review your booking request.</p>
+                    </div>
+                    <span class="step-arrow-td"
+                      style="position:absolute;top:28%;right:-14px;transform:translateY(-50%);">
+                      <img src="images/icn_line.svg" alt="→" style="width:28px;height:auto;display:block;" />
+                    </span>
+                  </td>
+
+                  <!-- Step 2 -->
+                  <td class="step-td"
+                    style="width:25%;vertical-align:top;text-align:center;padding:0 8px;position:relative;">
+                    <div class="step-num-wrap" style="text-align:center;margin-bottom:6px;">
+                      <div class="step-num"
+                        style="width:20px;height:20px;border-radius:50%;background-color:#F4B400;display:inline-flex;align-items:center;justify-content:center;font-size:12px;line-height:16px;font-weight:700;color:#ffffff;font-family:'Satoshi',Arial,sans-serif;">
+                        2</div>
+                    </div>
+                    <img class="step-icon" src="images/icn_recive_email.svg" alt="Receive email"
+                      style="max-width:72px;height:72px;margin:0 auto 12px auto;display:block;" />
+                    <div class="step-content">
+                      <p class="step-label"
+                        style="font-size:14px;font-weight:700;color:#202020;line-height:18px;font-family:'Satoshi',Arial,sans-serif;">
+                        You'll receive an email</p>
+                      <p class="step-label"
+                        style="font-size:14px;font-weight:400;color:#1A202C;line-height:20px;font-family:'Satoshi',Arial,sans-serif;">
+                        once they approve or decline.</p>
+                    </div>
+                    <span class="step-arrow-td"
+                      style="position:absolute;top:28%;right:-14px;transform:translateY(-50%);">
+                      <img src="images/icn_line.svg" alt="→" style="width:28px;height:auto;display:block;" />
+                    </span>
+                  </td>
+
+                  <!-- Step 3 -->
+                  <td class="step-td"
+                    style="width:25%;vertical-align:top;text-align:center;padding:0 8px;position:relative;">
+                    <div class="step-num-wrap" style="text-align:center;margin-bottom:6px;">
+                      <div class="step-num"
+                        style="width:20px;height:20px;border-radius:50%;background-color:#4D7F46;display:inline-flex;align-items:center;justify-content:center;font-size:12px;line-height:16px;font-weight:700;color:#ffffff;font-family:'Satoshi',Arial,sans-serif;">
+                        3</div>
+                    </div>
+                    <img class="step-icon" src="images/icn_link.svg" alt="Get link"
+                      style="max-width:72px;height:72px;margin:0 auto 12px auto;display:block;" />
+                    <div class="step-content">
+                      <p class="step-label"
+                        style="font-size:14px;font-weight:700;color:#202020;line-height:18px;font-family:'Satoshi',Arial,sans-serif;">
+                        If approved, you'll get</p>
+                      <p class="step-label"
+                        style="font-size:14px;font-weight:400;color:#1A202C;line-height:20px;font-family:'Satoshi',Arial,sans-serif;">
+                        a meeting link to join the session.</p>
+                    </div>
+                    <span class="step-arrow-td"
+                      style="position:absolute;top:28%;right:-14px;transform:translateY(-50%);">
+                      <img src="images/icn_line.svg" alt="→" style="width:28px;height:auto;display:block;" />
+                    </span>
+                  </td>
+
+                  <!-- Step 4 -->
+                  <td class="step-td" style="width:25%;vertical-align:top;text-align:center;padding:0 8px;">
+                    <div class="step-num-wrap" style="text-align:center;margin-bottom:6px;">
+                      <div class="step-num"
+                        style="width:20px;height:20px;border-radius:50%;background-color:#875DDD;display:inline-flex;align-items:center;justify-content:center;font-size:12px;line-height:16px;font-weight:700;color:#ffffff;font-family:'Satoshi',Arial,sans-serif;">
+                        4</div>
+                    </div>
+                    <img class="step-icon" src="images/icn_book.svg" alt="Book another"
+                      style="max-width:72px;height:72px;margin:0 auto 12px auto;display:block;" />
+                    <div class="step-content">
+                      <p class="step-label"
+                        style="font-size:14px;font-weight:700;color:#202020;line-height:18px;font-family:'Satoshi',Arial,sans-serif;">
+                        If declined, you can book</p>
+                      <p class="step-label"
+                        style="font-size:14px;font-weight:400;color:#1A202C;line-height:20px;font-family:'Satoshi',Arial,sans-serif;">
+                        another session or try a different chef.</p>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- MOBILE: each step gets its own row (hidden on desktop via max-width) -->
+                <!-- These rows only show on mobile via CSS display:block on the td -->
+
+              </table>
+            </td>
+          </tr>
+
+          <!-- ══ NOTICE BOX ══ -->
+          <tr>
+            <td class="nt-outer" style="padding:0 24px 19px 24px;">
+              <table class="nt-box" role="presentation" cellpadding="0" cellspacing="0" width="100%"
+                style="background-color:#ECF2F7;border-radius:16px;padding:16px;">
+                <tr>
+                  <td class="nt-icon-main" style="vertical-align:top;padding-right:12px;width:84px;">
+                    <img class="nt-icon" src="images/icn_lemp.svg" alt=""
+                      style="max-width:72px;height:72px;display:block;" />
+                  </td>
+                  <td style="vertical-align:top;">
+                    <p class="nt-text"
+                      style="font-size:16px;font-weight:400;color:#4A4A4A;line-height:24px;font-family:'Satoshi',Arial,sans-serif;">
+                      We'll notify you as soon as
+                      <strong style="font-weight:700;color:#1B4F72;">{HostName}</strong>
+                      responds to your booking request. This usually happens within
+                      <strong style="font-weight:700;color:#1B4F72;">24 hours</strong>.
+                      If you have any questions, feel free to contact our support team.
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- ══ BUTTON ══ -->
+          <tr>
+            <td class="btn-wrap" style="padding:0 24px 24px 24px;text-align:center;">
+              <a class="btn-link" href="#"
+                style="display:inline-block;background-color:#0F5593;color:#ffffff;font-size:16px;line-height:24px;font-weight:700;padding:16px 30px;border-radius:100px;text-decoration:none;font-family:'Satoshi',Arial,sans-serif;">
+                View My Booking
+              </a>
+            </td>
+          </tr>
+
+          <!-- ══ REGARDS ══ -->
+          <tr>
+            <td class="rg-wrap" style="padding:24px 24px 12px;">
+              <p class="rg-text"
+                style="font-size:16px;line-height:24px;font-weight:400;color:#4A4A4A;font-family:'Satoshi',Arial,sans-serif;">
+                Best regards,</p>
+              <p class="rg-brand"
+                style="font-size:16px;line-height:24px;font-weight:700;color:#1B4F72;font-family:'Satoshi',Arial,sans-serif;">
+                P2Bridge Team</p>
+            </td>
+          </tr>
+
+          <!-- ══ HELP BOX ══ -->
+          <tr>
+            <td class="hlp-outer" style="padding:0 24px 19px 24px;">
+              <table class="hlp-box" role="presentation" cellpadding="0" cellspacing="0" width="100%"
+                style="background-color:#ECF2F7;border-radius:16px;padding:12px 16px;">
+                <tr>
+                  <td class="hlp-left-td" style="vertical-align:middle;width:50%;">
+                    <table class="hlp-left-table" role="presentation" cellpadding="0" cellspacing="0" width="100%"
+                      style="border-right:1px solid #FFFFFF;padding-right:12px;">
+                      <tr>
+                        <td class="hlp-icon-main" style="vertical-align:middle;padding-right:16px;">
+                          <img class="hlp-icon" src="images/icn_message.svg" alt="help"
+                            style="max-width:64px;height:64px;display:block;" />
+                        </td>
+                        <td style="vertical-align:middle;">
+                          <p class="hlp-label"
+                            style="font-size:16px;line-height:21px;font-weight:700;color:#202020;font-family:'Satoshi',Arial,sans-serif;">
+                            Need help?</p>
+                          <p class="hlp-sub"
+                            style="font-size:14px;line-height:18px;font-weight:400;color:#202020;margin-top:8px;font-family:'Satoshi',Arial,sans-serif;">
+                            Our support team is here for you.</p>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                  <td class="hlp-links-td" style="vertical-align:middle;text-align:right;padding-left:12px;">
+                    <table class="hlp-links-table" role="presentation" cellpadding="0" cellspacing="0"
+                      style="margin-left:auto;">
+                      <tr>
+                        <td class="hlp-links-td-inner" style="padding-bottom:12px;">
+                          <table role="presentation" cellpadding="0" cellspacing="0">
+                            <tr>
+                              <td class="hlp-links-td-icon" style="vertical-align:middle;padding-right:16px;">
+                                <img class="hlp-link-icon" src="images/icn_sms.svg" alt=""
+                                  style="max-width:24px;height:24px;display:block;" />
+                              </td>
+                              <td>
+                                <a class="hlp-link" href="mailto:support@p2bridge.com"
+                                  style="font-size:14px;line-height:18px;font-weight:500;color:#0F5593;text-decoration:none;font-family:'Satoshi',Arial,sans-serif;">
+                                  support@p2bridge.com
+                                </a>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <table role="presentation" cellpadding="0" cellspacing="0">
+                            <tr>
+                              <td class="hlp-links-td-icon" style="vertical-align:middle;padding-right:16px;">
+                                <img class="hlp-link-icon" src="images/icn_world.svg" alt=""
+                                  style="max-width:24px;height:24px;display:block;" />
+                              </td>
+                              <td>
+                                <a class="hlp-link" href="https://www.p2bridge.com"
+                                  style="font-size:14px;line-height:18px;font-weight:500;color:#0F5593;text-decoration:none;font-family:'Satoshi',Arial,sans-serif;">
+                                  www.p2bridge.com
+                                </a>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- ══ FOOTER ══ -->
+          <tr>
+            <td class="ft-wrap" style="background-color:#0F5593;padding:25px 24px;text-align:center;">
+              <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 auto;">
+                <tr>
+                  <td style="padding-right:8px;"><a href="#"><img class="ft-social-icon" src="images/icn_yt.svg"
+                        alt="YouTube" style="max-width:36px;height:36px;display:block;" /></a></td>
+                  <td style="padding-right:8px;"><a href="#"><img class="ft-social-icon" src="images/icn_instagram.svg"
+                        alt="Instagram" style="max-width:36px;height:36px;display:block;" /></a></td>
+                  <td style="padding-right:8px;"><a href="#"><img class="ft-social-icon" src="images/icn_facebook.svg"
+                        alt="Facebook" style="max-width:36px;height:36px;display:block;" /></a></td>
+                  <td><a href="#"><img class="ft-social-icon" src="images/icn_x.svg" alt="X"
+                        style="max-width:36px;height:36px;display:block;" /></a></td>
+                </tr>
+              </table>
+              <div class="ft-link-main" style="margin-top:12px;margin-bottom:12px;">
+                <a class="ft-link" href="#"
+                  style="font-size:14px;line-height:21px;color:#FFFFFF;text-decoration:none;margin-right:32px;font-family:'Satoshi',Arial,sans-serif;">About
+                  Us</a>
+                <a class="ft-link" href="#"
+                  style="font-size:14px;line-height:21px;color:#FFFFFF;text-decoration:none;margin-right:32px;font-family:'Satoshi',Arial,sans-serif;">Contact
+                  Us</a>
+                <a class="ft-link" href="#"
+                  style="font-size:14px;line-height:21px;color:#FFFFFF;text-decoration:none;font-family:'Satoshi',Arial,sans-serif;">Terms
+                  &amp; Conditions</a>
+              </div>
+              <p class="ft-copy"
+                style="font-size:14px;line-height:21px;color:#FFFFFF;text-align:center;font-family:'Satoshi',Arial,sans-serif;">
+                &copy; 2026 P2 Bridge. All rights reserved.
+              </p>
+            </td>
+          </tr>
+
+        </table>
+        <!-- /email-container -->
+
+      </td>
+    </tr>
+  </table>
+  <!-- /outer wrapper -->
+
+</body>
+
+</html>
